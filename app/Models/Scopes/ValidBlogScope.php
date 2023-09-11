@@ -1,0 +1,19 @@
+<?php // gkc_hash_code : 01GZKG7CDRDAEF6WRVHS235N0W ?>
+<?php
+
+namespace App\Models\Scopes;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Scope;
+
+class ValidBlogScope implements Scope
+{
+    /**
+     * Apply the scope to a given Eloquent query builder.
+     */
+    public function apply(Builder $builder, Model $model): void
+    {
+        $builder->whereNull('deleted_at');
+    }
+}
